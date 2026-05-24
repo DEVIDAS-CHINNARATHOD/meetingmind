@@ -28,6 +28,7 @@ langchain==0.3.9
 langchain-groq==0.2.3
 langchain-community==0.3.9
 sentence-transformers==3.3.1
+tokenizers>=0.21                # Pin for cp314 pre-built wheel
 chromadb==0.5.23
 openai==1.57.4
 
