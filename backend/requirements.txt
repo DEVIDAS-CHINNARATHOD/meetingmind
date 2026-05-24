@@ -1,0 +1,66 @@
+# ── Core Framework ──────────────────────────────────────────
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+gunicorn==23.0.0
+python-multipart==0.0.12
+httpx==0.28.0
+
+# ── Database ─────────────────────────────────────────────────
+sqlalchemy==2.0.36
+alembic==1.14.0
+asyncpg>=0.30.0
+psycopg2-binary>=2.9.10
+
+# ── Auth & Security ──────────────────────────────────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.0.1
+
+# ── Task Queue ───────────────────────────────────────────────
+celery==5.4.0
+redis==5.2.0
+flower==2.0.1
+
+# ── AI / ML ──────────────────────────────────────────────────
+faster-whisper==1.1.0
+pyannote.audio==3.3.2
+langchain==0.3.9
+langchain-groq==0.2.3
+langchain-community==0.3.9
+sentence-transformers==3.3.1
+chromadb==0.5.23
+openai==1.57.4
+
+# ── NOTE: PyTorch CPU-only must be installed SEPARATELY first:
+#    pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+#    (Do NOT include torch here — pip will pull the CUDA version from PyPI)
+
+# ── File Processing ──────────────────────────────────────────
+ffmpeg-python==0.2.0
+python-magic==0.4.27
+aiofiles==24.1.0
+boto3==1.35.81          # AWS S3 / Cloudflare R2
+
+# ── Report Generation ────────────────────────────────────────
+reportlab==4.2.5         # PDF
+python-docx==1.1.2       # DOCX
+
+# ── Validation & Serialization ───────────────────────────────
+# Upgraded for Python 3.14 pre-built wheel support
+pydantic>=2.11
+pydantic-settings>=2.6.1
+email-validator==2.2.0
+
+# ── Utilities ────────────────────────────────────────────────
+structlog==24.4.0
+tenacity==9.0.0
+python-slugify==8.0.4
+
+# ── Phase 2 additions ─────────────────────────────────────────
+groq==0.13.1                  # Official Groq Python SDK (for streaming)
+
+# ── Phase 4 additions ─────────────────────────────────────────
+# Upgraded for Python 3.14 pre-built wheel support
+playwright>=1.52.0            # Google Meet browser automation
+soundfile==0.12.1             # WAV write for real-time chunks
+websockets==14.1              # WebSocket client (for testing)

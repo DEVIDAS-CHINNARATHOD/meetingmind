@@ -1,0 +1,55 @@
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.env
+!.env.example
+*.log
+
+# ── Node ──────────────────────────────────────────────────────
+node_modules/
+.next/
+out/
+.turbo/
+.cache/
+*.tsbuildinfo
+frontend/.env.local
+!frontend/.env.example
+
+# ── Data / models ─────────────────────────────────────────────
+backend/data/
+*.wav
+*.mp4
+*.mp3
+*.mkv
+*.mov
+ms-playwright/
+
+# ── Docker ────────────────────────────────────────────────────
+.dockerignore
+
+# ── IDE ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# ── SSL ───────────────────────────────────────────────────────
+ssl/
+*.pem
+*.key
+*.crt
+
+# ── Test artifacts ────────────────────────────────────────────
+.pytest_cache/
+htmlcov/
+.coverage

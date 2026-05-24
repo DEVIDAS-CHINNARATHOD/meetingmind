@@ -1,0 +1,1 @@
+# meetingmind-backend package root
