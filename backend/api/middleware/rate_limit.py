@@ -44,6 +44,10 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         return self._redis
 
     async def dispatch(self, request: Request, call_next) -> Response:
+        # Always let CORS preflight through — rate-limiting OPTIONS breaks cross-origin auth
+        if request.method == "OPTIONS":
+            return await call_next(request)
+
         # Skip exempt paths
         for prefix in _EXEMPT_PREFIXES:
             if request.url.path.startswith(prefix):
