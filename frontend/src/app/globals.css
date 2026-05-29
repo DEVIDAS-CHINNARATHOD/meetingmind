@@ -189,10 +189,10 @@
   .tag {
     @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
   }
-  .tag-violet  { @apply bg-violet-500/15 text-violet-300 border border-violet-500/25; }
-  .tag-green   { @apply bg-emerald-500/12 text-emerald-400 border border-emerald-500/20; }
-  .tag-amber   { @apply bg-amber-500/12 text-amber-400 border border-amber-500/20; }
-  .tag-blue    { @apply bg-blue-500/12 text-blue-400 border border-blue-500/20; }
-  .tag-red     { @apply bg-red-500/12 text-red-400 border border-red-500/20; }
+  .tag-violet  { @apply text-violet-300 border; background: rgba(139, 92, 246, 0.15); border-color: rgba(139, 92, 246, 0.25); }
+  .tag-green   { @apply text-emerald-400 border; background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.20); }
+  .tag-amber   { @apply text-amber-400 border; background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.20); }
+  .tag-blue    { @apply text-blue-400 border; background: rgba(59, 130, 246, 0.12); border-color: rgba(59, 130, 246, 0.20); }
+  .tag-red     { @apply text-red-400 border; background: rgba(239, 68, 68, 0.12); border-color: rgba(239, 68, 68, 0.20); }
   .tag-muted   { @apply bg-muted text-muted-foreground border border-border; }
 }

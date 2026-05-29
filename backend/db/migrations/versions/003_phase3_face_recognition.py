@@ -17,11 +17,15 @@ depends_on = None
 
 def upgrade() -> None:
     # face_embedding already defined in models as JSONB — just add index
-    # Add face_recognition_results column to meetings
-    op.add_column(
-        "meetings",
-        sa.Column("face_recognition_results", JSONB, nullable=True),
-    )
+    # Add face_recognition_results column to meetings if it doesn't exist
+    conn = op.get_bind()
+    inspector = sa.inspect(conn)
+    columns = [c["name"] for c in inspector.get_columns("meetings")]
+    if "face_recognition_results" not in columns:
+        op.add_column(
+            "meetings",
+            sa.Column("face_recognition_results", JSONB, nullable=True),
+        )
 
     # Index on participant speaker_label for fast join
     op.create_index(

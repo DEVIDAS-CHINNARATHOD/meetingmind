@@ -16,10 +16,14 @@ depends_on = None
 def upgrade() -> None:
     # external_join_url might not exist yet (added in models but
     # migration must be explicit)
-    op.add_column(
-        "meetings",
-        sa.Column("external_join_url", sa.String(500), nullable=True),
-    )
+    conn = op.get_bind()
+    inspector = sa.inspect(conn)
+    columns = [c["name"] for c in inspector.get_columns("meetings")]
+    if "external_join_url" not in columns:
+        op.add_column(
+            "meetings",
+            sa.Column("external_join_url", sa.String(500), nullable=True),
+        )
     # Index for webhook lookups by external Zoom meeting ID
     op.create_index(
         "ix_meetings_external_meeting_id",

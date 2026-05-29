@@ -30,7 +30,7 @@ const navSections = [
     ],
   },
   {
-    label: "Workspace",
+    label: "Organization",
     items: [
       { href: "/team",         icon: Users,   label: "Team"         },
       { href: "/integrations", icon: Puzzle,  label: "Integrations" },

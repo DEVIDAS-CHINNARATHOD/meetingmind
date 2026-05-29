@@ -50,13 +50,27 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+// Use Clerk only when real keys are configured
+const hasClerkKeys =
+  process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY &&
+  !process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY.includes("xxxx") &&
+  process.env.CLERK_SECRET_KEY &&
+  !process.env.CLERK_SECRET_KEY.startsWith("sk_test_REPLACE");
+
+const AppShell = ({ children }: { children: React.ReactNode }) =>
+  hasClerkKeys ? (
+    <ClerkProvider>{children}</ClerkProvider>
+  ) : (
+    <>{children}</>
+  );
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <AppShell>
       <html
         lang="en"
         suppressHydrationWarning
@@ -77,6 +91,6 @@ export default function RootLayout({
           />
         </body>
       </html>
-    </ClerkProvider>
+    </AppShell>
   );
 }

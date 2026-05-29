@@ -14,7 +14,7 @@ env/
 .env
 !.env.example
 *.log
-
+.env.local
 # ── Node ──────────────────────────────────────────────────────
 node_modules/
 .next/
